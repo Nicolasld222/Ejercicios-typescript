@@ -25,4 +25,21 @@ function buscarProducto(nombre:string): producto | undefined{
     }
 }
 
-function valorInventario():void{}
+function valorInventario(): number{
+    if(tienda.length === 0){
+        console.log(`No hay productos en nuestra tienda`);
+        return 0;
+    }
+    const inventarioTotal = tienda.reduce((total, producto) => total + producto.valor, 0);
+    console.log(`El valor total del inventario es: ${inventarioTotal}`);
+    return inventarioTotal;
+}
+
+// Ejemplo 
+agregarProducto("Chocolatina", 1000);
+agregarProducto("Papas", 3000);
+agregarProducto("Coca-cola", 3200);
+
+buscarProducto("Coca-cola");
+
+valorInventario();
